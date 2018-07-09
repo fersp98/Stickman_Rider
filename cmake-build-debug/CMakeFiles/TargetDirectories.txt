@@ -1,0 +1,3 @@
+/home/pyxel/Escritorio/UTEC/poo2/stickman_rider/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/pyxel/Escritorio/UTEC/poo2/stickman_rider/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/pyxel/Escritorio/UTEC/poo2/stickman_rider/cmake-build-debug/CMakeFiles/stickman_rider.dir
