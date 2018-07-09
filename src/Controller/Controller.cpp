@@ -15,7 +15,7 @@ void Controller::drawScreen() {
     int tiempo_ant = 0,R,G,B;
 
     //Window Properties
-    unsigned int height,width;
+    float height,width;
     height = sf::VideoMode::getDesktopMode().height;
     width = sf::VideoMode::getDesktopMode().width;
     sf::RenderWindow window(sf::VideoMode(width,height),"Audio Visualizer");
@@ -39,11 +39,15 @@ void Controller::drawScreen() {
         std::cout<<"Error Loading Track :("<<std::endl; // error
     music.play();
 
-
     //Drawing Bars
     std::vector<sf::ConvexShape> barra;
-    int len = width/track.getSampSize();
-    int posx = 1;
+
+    //setting bar properties
+    int pad = 2;
+    float len;
+    len = (width - pad * (track.getSampSize() - 1)) / track.getSampSize();
+    std::cout<<len<<std::endl;
+    float posx = 0;
     std::vector<float> av = track.getAverage();
 
 
@@ -52,14 +56,14 @@ void Controller::drawScreen() {
         auto y = height/2-10-(int)(av[i]*300);
         //std::cout<<y<<std::endl;
         //std::cout<<i<<" "<<x<<" " << y<<std::endl;
-        barra.push_back(sf::ConvexShape());
+        barra.emplace_back(sf::ConvexShape());
         barra[i].setPointCount(4);
         barra[i].setPoint(0,sf::Vector2f(posx,y));
         barra[i].setPoint(1,sf::Vector2f(posx,height/2-10));
         barra[i].setPoint(2,sf::Vector2f(posx+len,height/2-10));
         barra[i].setPoint(3,sf::Vector2f(posx+len,y));
-        barra[i].setFillColor(sf::Color::Transparent);
-        posx += len+1;
+        barra[i].setFillColor(sf::Color::Black);
+        posx += (len+pad);
     }
 
     //Rendering Window
@@ -85,12 +89,11 @@ void Controller::drawScreen() {
             tiempo_ant= int(elapsed1.asSeconds());
             if(int(elapsed1.asSeconds()) == track.getSampSize()){
                 std::cout<<elapsed1.asSeconds()<<"\t"<<track.getSampSize();
-                std::cout<<" Ya terminó prros >:(" <<std::endl;
+                std::cout<<" Ya terminó >:(" <<std::endl;
                 window.close();
                 break;
             }
         }
-
         window.display();
     }
 }

@@ -4,7 +4,7 @@
 int main() {
     Track tr;
     Scenario scenario("/home/pyxel/Escritorio/UTEC/poo2/stickman_rider/res/img/min.jpg");
-    tr.loadSong("/home/pyxel/Escritorio/UTEC/poo2/stickman_rider/res/tracks/ocean.wav");
+    tr.loadSong("/home/pyxel/Escritorio/UTEC/poo2/stickman_rider/res/tracks/forever.wav");
     std::vector<std::vector<float>>samps = tr.getSamps();
     std::vector<float> av = tr.getAverage();
 
@@ -17,7 +17,6 @@ int main() {
         std::cout<<std::endl;
     }
 */
-
     Controller controller(scenario, tr);
     controller.drawScreen();
 }

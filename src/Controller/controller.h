@@ -5,7 +5,7 @@
 #ifndef STICKMAN_RIDER_CONTROLLER_H
 #define STICKMAN_RIDER_CONTROLLER_H
 
-#include "../Song/song.h"
+#include "../Track/Track.h"
 #include "../Scenario/scenario.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
