@@ -1,4 +1,4 @@
-# Stickman_Rider
+# Audio Visualizer
 A simple audio amplitude visualizer. Bar's color change in time domain. 
 ### For detailed info: goo.gl/zDex6a
 
